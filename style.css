@@ -161,10 +161,12 @@ nav a:hover {
   animation: rotateCube 8s linear infinite;
 }
 
+/* 
 @keyframes rotateCube {
   0%   { transform: rotateX(-20deg) rotateY(0deg); }
   100% { transform: rotateX(-20deg) rotateY(360deg); }
 }
+*/
 
 .face {
   position: absolute;
