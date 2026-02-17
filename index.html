@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rubik's Cube – Lösen & Strategien</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header>
+    <div class="logo">🎲 Rubik's Cube</div>
+    <nav>
+      <a href="#was-ist">Was ist das?</a>
+      <a href="#notation">Notation</a>
+      <a href="#anfaenger">Anfänger-Methode</a>
+      <a href="#strategien">Strategien</a>
+      <a href="#tipps">Tipps</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Den Rubik's Cube <span class="highlight">meistern</span></h1>
+      <p>Vom totalen Chaos zum perfekt gelösten Würfel – Schritt für Schritt erklärt.</p>
+      <a href="#anfaenger" class="btn">Jetzt lernen ↓</a>
+    </div>
+    <div class="cube-animation">
+      <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Was ist ein Rubik's Cube? -->
+  <section id="was-ist" class="section">
+    <div class="container">
+      <h2>🧩 Was ist ein Rubik's Cube?</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Geschichte</h3>
+          <p>Der Rubik's Cube wurde 1974 vom ungarischen Architekten und Bildhauer Ernő Rubik erfunden. Seit 1980 wird er weltweit verkauft und gilt als das meistverkaufte Spielzeug der Welt.</p>
+        </div>
+        <div class="card">
+          <h3>Aufbau</h3>
+          <p>Der Standard-Würfel hat <strong>6 Seiten</strong>, <strong>54 Felder</strong> und besteht aus 26 kleinen Würfeln (Cubbies). Es gibt 43 Trillionen mögliche Kombinationen!</p>
+        </div>
+        <div class="card">
+          <h3>Das Ziel</h3>
+          <p>Alle 6 Seiten sollen jeweils eine einheitliche Farbe haben: Weiß, Gelb, Rot, Orange, Blau und Grün – egal in welcher Reihenfolge du anfängst.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Notation -->
+  <section id="notation" class="section section-alt">
+    <div class="container">
+      <h2>📖 Die Notation verstehen</h2>
+      <p class="section-intro">Beim Cubing nutzen wir Buchstaben-Abkürzungen für die Züge. Hier die wichtigsten:</p>
+      <div class="notation-grid">
+        <div class="notation-card">
+          <span class="move-letter">U</span>
+          <span class="move-name">Up (oben)</span>
+          <span class="move-desc">Obere Schicht drehen</span>
+        </div>
+        <div class="notation-card">
+          <span class="move-letter">D</span>
+          <span class="move-name">Down (unten)</span>
+          <span class="move-desc">Untere Schicht drehen</span>
+        </div>
+        <div class="notation-card">
+          <span class="move-letter">R</span>
+          <span class="move-name">Right (rechts)</span>
+          <span class="move-desc">Rechte Schicht drehen</span>
+        </div>
+        <div class="notation-card">
+          <span class="move-letter">L</span>
+          <span class="move-name">Left (links)</span>
+          <span class="move-desc">Linke Schicht drehen</span>
+        </div>
+        <div class="notation-card">
+          <span class="move-letter">F</span>
+          <span class="move-name">Front (vorne)</span>
+          <span class="move-desc">Vordere Schicht drehen</span>
+        </div>
+        <div class="notation-card">
+          <span class="move-letter">B</span>
+          <span class="move-name">Back (hinten)</span>
+          <span class="move-desc">Hintere Schicht drehen</span>
+        </div>
+      </div>
+      <p class="notation-hint">💡 <strong>Tipp:</strong> Ein Buchstabe allein = im Uhrzeigersinn. Ein Hochkomma (z.B. <code>R'</code>) = gegen den Uhrzeigersinn. Eine 2 (z.B. <code>U2</code>) = zwei Mal drehen.</p>
+    </div>
+  </section>
+
+  <!-- SECTION: Anfänger-Methode -->
+  <section id="anfaenger" class="section">
+    <div class="container">
+      <h2>🟢 Anfänger-Methode (Schicht für Schicht)</h2>
+      <p class="section-intro">Die einfachste Methode für Einsteiger. Du löst den Würfel Schicht für Schicht von oben nach unten.</p>
+      
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Das weiße Kreuz</h3>
+            <p>Beginne mit der weißen Seite. Forme zuerst ein weißes Kreuz auf der oberen Seite – dabei müssen die Farben der Randsteine mit den benachbarten Mittelsteinen übereinstimmen.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Weiße Ecken lösen</h3>
+            <p>Platziere die vier weißen Ecksteine an die richtige Stelle, sodass die gesamte weiße Seite vollständig und korrekt ist.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Mittlere Schicht</h3>
+            <p>Löse die vier Kantensteine der mittleren Schicht. Nutze dafür den Algorithmus: <code>U R U' R' U' F' U F</code> (nach rechts) oder das Spiegelbild davon.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Gelbes Kreuz</h3>
+            <p>Forme ein gelbes Kreuz auf der letzten Schicht. Algorithmus: <code>F R U R' U' F'</code> – ggf. mehrmals anwenden.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Gelbe Ecken positionieren</h3>
+            <p>Bringe die gelben Ecken an die richtigen Positionen: <code>U R U' L' U R' U' L</code></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>Gelbe Ecken orientieren</h3>
+            <p>Drehe die Ecken in die richtige Richtung: <code>R' D' R D</code> – solange wiederholen, bis die Ecke richtig sitzt, dann zur nächsten.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">7</div>
+          <div class="step-content">
+            <h3>Gelbe Kanten positionieren</h3>
+            <p>Zum Schluss: Positioniere die letzten Kantensteine: <code>R U' R U R U R U' R' U' R2</code> – fertig! 🎉</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Strategien -->
+  <section id="strategien" class="section section-alt">
+    <div class="container">
+      <h2>⚡ Fortgeschrittene Strategien</h2>
+      <div class="card-grid">
+        <div class="card card-advanced">
+          <div class="card-icon">🟡</div>
+          <h3>CFOP (Fridrich-Methode)</h3>
+          <p>Die beliebteste Speedcubing-Methode. Abkürzung für <strong>Cross → F2L → OLL → PLL</strong>. Profis lösen damit den Würfel in unter 10 Sekunden!</p>
+          <span class="level">Mittel – Fortgeschritten</span>
+        </div>
+        <div class="card card-advanced">
+          <div class="card-icon">🔵</div>
+          <h3>Roux-Methode</h3>
+          <p>Eine effiziente Methode mit weniger Zügen. Statt Schichten werden <strong>Blöcke</strong> gebaut. Besonders beliebt bei One-Handed-Solving.</p>
+          <span class="level">Mittel</span>
+        </div>
+        <div class="card card-advanced">
+          <div class="card-icon">🟠</div>
+          <h3>ZZ-Methode</h3>
+          <p>Beginnt mit <strong>EOLine</strong> (Edge Orientation + Line). Danach lassen sich alle weiteren Schritte nur mit R, L, U, D-Zügen lösen – sehr effizient.</p>
+          <span class="level">Fortgeschritten</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Tipps -->
+  <section id="tipps" class="section">
+    <div class="container">
+      <h2>💡 Tipps für Anfänger</h2>
+      <ul class="tips-list">
+        <li>🕐 <strong>Geduld haben:</strong> Es ist normal, dass es beim ersten Mal lange dauert. Üben macht den Meister!</li>
+        <li>📝 <strong>Algorithmen aufschreiben:</strong> Schreib dir die wichtigsten Züge auf und lern sie Schritt für Schritt.</li>
+        <li>👁️ <strong>Erst verstehen, dann auswendig lernen:</strong> Verstehe, warum ein Algorithmus funktioniert – dann merkst du dir ihn viel leichter.</li>
+        <li>🔁 <strong>Wiederholen:</strong> Löse den Würfel täglich – nach zwei Wochen geht es schon viel schneller.</li>
+        <li>📹 <strong>Videos schauen:</strong> YouTube-Tutorials (z.B. von J Perm oder CubeSkills) helfen enorm beim Verstehen.</li>
+        <li>⏱️ <strong>Zeit stoppen:</strong> Miss deine Zeit – es macht mehr Spaß und motiviert!</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Erstellt von Schüler &amp; Lehrer | Rubik's Cube Lernseite</p>
+    <p class="footer-small">Viel Spaß beim Lösen! 🎲</p>
+  </footer>
+
+</body>
+</html>

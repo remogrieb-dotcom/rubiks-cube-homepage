@@ -1,0 +1,436 @@
+/* =============================================
+   RUBIK'S CUBE HOMEPAGE - style.css
+   =============================================
+   Tipp: CSS-Variablen (--variablenname) ganz 
+   oben machen es einfach, Farben zu ändern!
+   ============================================= */
+
+/* --- GRUNDFARBEN & SCHRIFTEN --- */
+:root {
+  --weiss:     #ffffff;
+  --hellgrau:  #f5f5f5;
+  --dunkelgrau:#2b2b2b;
+  --text:      #333333;
+  --highlight: #e63946; /* Rote Akzentfarbe */
+  --blau:      #457b9d;
+  --gelb:      #f4d35e;
+  --gruen:     #52b788;
+  --abstand:   2rem;
+  --radius:    12px;
+  --schatten:  0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* --- RESET & BASIS --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  color: var(--text);
+  background: var(--weiss);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* --- LINKS --- */
+a {
+  color: var(--highlight);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- CODE-BLÖCKE (für Algorithmen) --- */
+code {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: var(--highlight);
+  font-weight: bold;
+}
+
+/* =============================================
+   HEADER & NAVIGATION
+   ============================================= */
+header {
+  background: var(--dunkelgrau);
+  color: var(--weiss);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--weiss);
+  font-size: 0.95rem;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+nav a:hover {
+  border-bottom-color: var(--highlight);
+  text-decoration: none;
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+.hero {
+  background: linear-gradient(135deg, #1d1d1d 0%, #2b2b2b 60%, #1a1a2e 100%);
+  color: var(--weiss);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding: 5rem 2rem;
+  min-height: 80vh;
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+.highlight {
+  color: var(--highlight);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--highlight);
+  color: var(--weiss);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  background: #c1121f;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* --- ANIMIERTER WÜRFEL --- */
+.cube-animation {
+  perspective: 500px;
+}
+
+.cube {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 8s linear infinite;
+}
+
+@keyframes rotateCube {
+  0%   { transform: rotateX(-20deg) rotateY(0deg); }
+  100% { transform: rotateX(-20deg) rotateY(360deg); }
+}
+
+.face {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 3px solid rgba(255,255,255,0.3);
+  opacity: 0.85;
+  border-radius: 4px;
+}
+
+.front  { background: #e63946; transform: translateZ(60px); }
+.back   { background: #f4a261; transform: rotateY(180deg) translateZ(60px); }
+.left   { background: #457b9d; transform: rotateY(-90deg) translateZ(60px); }
+.right  { background: #52b788; transform: rotateY(90deg) translateZ(60px); }
+.top    { background: #f4d35e; transform: rotateX(90deg) translateZ(60px); }
+.bottom { background: #f1faee; transform: rotateX(-90deg) translateZ(60px); }
+
+/* =============================================
+   ALLGEMEINE SECTIONS
+   ============================================= */
+.section {
+  padding: 4rem 2rem;
+}
+
+.section-alt {
+  background: var(--hellgrau);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--dunkelgrau);
+}
+
+.section-intro {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* --- KARTEN-GITTER --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: var(--weiss);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--schatten);
+  border-top: 4px solid var(--highlight);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--dunkelgrau);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* --- FORTGESCHRITTENE KARTEN --- */
+.card-advanced {
+  border-top-color: var(--blau);
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.level {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: var(--dunkelgrau);
+  color: var(--weiss);
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+/* =============================================
+   NOTATION
+   ============================================= */
+.notation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.notation-card {
+  background: var(--weiss);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--schatten);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: transform 0.2s;
+}
+
+.notation-card:hover {
+  transform: translateY(-3px);
+}
+
+.move-letter {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--highlight);
+  font-family: 'Courier New', monospace;
+}
+
+.move-name {
+  font-weight: bold;
+  color: var(--dunkelgrau);
+  font-size: 0.9rem;
+}
+
+.move-desc {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.notation-hint {
+  margin-top: 1.5rem;
+  background: #fff3cd;
+  border-left: 4px solid var(--gelb);
+  padding: 0.8rem 1rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+}
+
+/* =============================================
+   SCHRITTE (Anfänger-Methode)
+   ============================================= */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  background: var(--weiss);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--schatten);
+  transition: transform 0.2s;
+}
+
+.step:hover {
+  transform: translateX(6px);
+}
+
+.step-number {
+  background: var(--highlight);
+  color: var(--weiss);
+  font-size: 1.4rem;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: var(--dunkelgrau);
+}
+
+.step-content p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* =============================================
+   TIPPS-LISTE
+   ============================================= */
+.tips-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tips-list li {
+  background: var(--weiss);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--schatten);
+  font-size: 0.97rem;
+  border-left: 4px solid var(--gruen);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  background: var(--dunkelgrau);
+  color: var(--weiss);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-small {
+  margin-top: 0.5rem;
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+/* =============================================
+   RESPONSIVE (Handy-Ansicht)
+   ============================================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
